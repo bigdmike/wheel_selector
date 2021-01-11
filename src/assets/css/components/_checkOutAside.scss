@@ -1,0 +1,147 @@
+#CheckOutAside {
+    width: 400px;
+    height: 100%;
+    border-left: 1px solid #eee;
+    opacity: 0;
+    transition: all .3s;
+
+    &.active {
+        opacity: 1;
+    }
+
+    .img_box {
+        width: 100%;
+        margin-bottom: 30px;
+        position: relative;
+
+        img {
+            width: 100%;
+
+            &.color_part {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                &:nth-of-type(1) {
+                    z-index: 3;
+                }
+
+                &:nth-of-type(2) {
+                    z-index: 2;
+                }
+
+                &:nth-of-type(3) {
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    .row {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 70px 0px 0px;
+    }
+
+    @media(max-width:1000px) {
+        width: 600px;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        border-left: none;
+    }
+}
+
+#CheckOutAside .main_container {
+    width: 100%;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @media(max-width:1000px) {
+        text-align: center;
+        align-items: center;
+        margin-bottom: 30px;
+
+    }
+
+    h4 {
+        margin: 0 0 10px;
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 0px 0px 10px;
+        color: #777;
+    }
+
+    hr {
+        margin: 0;
+        border: none;
+        border-top: 1px solid rgb(201, 199, 199);
+        width: 100%;
+        margin: 0px 0px 10px;
+    }
+
+    .color_list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all .3s;
+
+            &.active {
+                margin: 0 10px;
+                transform: scale(1.2);
+                box-shadow: 0px 0px 10px 0px rgba(5, 5, 5, 0.247);
+            }
+        }
+
+        img {
+            width: 50px;
+            display: block;
+        }
+    }
+
+    .wheel_list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin: 0 5px;
+            cursor: pointer;
+            opacity: .3;
+            transition: all .3s;
+
+            &.active {
+                margin: 0 10px;
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        img {
+            width: 50px;
+            display: block;
+        }
+    }
+}

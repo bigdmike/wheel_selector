@@ -3,10 +3,10 @@
     <transition name="fade">
       <div class="page" :class="{ active: step == 1 }">
         <transition name="fade-left">
-          <BodyColorView v-if="step == 1" :option="option" />
+          <BodyColorView :class="{ active: step == 1 }" :option="option" />
         </transition>
         <BodyColorAside
-          v-if="step == 1"
+          :class="{ active: step == 1 }"
           v-on:set-body-color="SetBodyColor"
           v-on:set-step="SetStep"
           :option="option"
@@ -16,10 +16,10 @@
     <transition name="fade">
       <div class="page" :class="{ active: step == 2 }">
         <transition name="fade-left">
-          <WheelView v-if="step == 2" :option="option" />
+          <WheelView :class="{ active: step == 2 }" :option="option" />
         </transition>
         <WheelAside
-          v-if="step == 2"
+          :class="{ active: step == 2 }"
           v-on:set-wheel="SetWheel"
           v-on:set-step="SetStep"
           :option="option"
@@ -29,10 +29,23 @@
     <transition name="fade">
       <div class="page" :class="{ active: step == 3 }">
         <transition name="fade-left">
-          <ClipersView v-if="step == 3" :option="option" />
+          <ClipersView :class="{ active: step == 3 }" :option="option" />
         </transition>
         <ClipersAside
-          v-if="step == 3"
+          :class="{ active: step == 3 }"
+          v-on:set-clipers-color="SetCliper"
+          v-on:set-step="SetStep"
+          :option="option"
+        />
+      </div>
+    </transition>
+    <transition name="fade">
+      <div class="page" :class="{ active: step == 4 }">
+        <transition name="fade-left">
+          <CheckoutView :class="{ active: step == 4 }" :option="option" />
+        </transition>
+        <CheckoutAside
+          :class="{ active: step == 4 }"
           v-on:set-clipers-color="SetCliper"
           v-on:set-step="SetStep"
           :option="option"
@@ -49,6 +62,8 @@ import WheelView from "../components/WheelView/index"
 import WheelAside from "../components/WheelAside/index"
 import ClipersView from "../components/ClipersColorView/index"
 import ClipersAside from "../components/ClipersColorAside/index"
+import CheckoutView from "../components/CheckoutView/index"
+import CheckoutAside from "../components/CheckoutAside/index"
 
 export default {
   name: 'Home',
@@ -58,16 +73,18 @@ export default {
     WheelView,
     WheelAside,
     ClipersView,
-    ClipersAside
+    ClipersAside,
+    CheckoutView,
+    CheckoutAside
   },
   data() {
     return {
-      step: 1,
       option: {
         wheel: 1,
         body_color: "black",
         clipers_color: "blue"
-      }
+      },
+      screenWidth: document.body.clientWidth
     }
   },
   methods: {
@@ -81,7 +98,21 @@ export default {
       this.option.clipers_color = color
     },
     SetStep(step) {
-      this.step = step
+      this.$store.commit("SetStep", step)
+    }
+  },
+  computed: {
+    step() {
+      return this.$store.state.step
+    }
+  },
+  mounted() {
+    const that = this
+    window.onresize = () => {
+      return (() => {
+        window.screenWidth = document.body.clientWidth
+        that.screenWidth = window.screenWidth
+      })()
     }
   }
 }

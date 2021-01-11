@@ -4,10 +4,10 @@
     </div>
     <div class="nav_body">
         <ol>
-            <li>選擇車色</li>
-            <li>選擇輪框</li>
-            <li>卡鉗顏色</li>
-            <li>訂單總覽</li>
+            <li @click="$store.commit('SetStep',1)" :class="{active:step == 1}">選擇車色</li>
+            <li @click="$store.commit('SetStep',2)" :class="{active:step == 2}">選擇輪框</li>
+            <li @click="$store.commit('SetStep',3)" :class="{active:step == 3}">卡鉗顏色</li>
+            <li @click="$store.commit('SetStep',4)" :class="{active:step == 4}">訂單總覽</li>
         </ol>
     </div>
 </div>

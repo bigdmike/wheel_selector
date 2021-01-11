@@ -2,6 +2,11 @@
 
 <script>
 export default {
-  name: "MainNav"
+  name: "MainNav",
+  computed: {
+    step() {
+      return this.$store.state.step
+    }
+  },
 }
 </script>

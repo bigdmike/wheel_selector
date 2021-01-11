@@ -5,7 +5,7 @@
             <ol class="wheel_list">
                 <li v-for="item in wheels" :class="{active:option.wheel == item.id}"
                     @click="$emit('set-wheel',item.id)">
-                    <img :src="`/img/wheels/option/${item.id}.png`" /></li>
+                    <img :src="`/img/angle_1/wheels/option/${item.id}.png`" /></li>
             </ol>
             <p>{{wheels.filter(item=>item.id == option.wheel)[0].text}}</p>
             <hr>

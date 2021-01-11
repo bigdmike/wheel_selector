@@ -5,7 +5,7 @@
             <ol class="color_list">
                 <li v-for="item in colors" :class="{active:option.body_color == item.name}"
                     @click="$emit('set-body-color',item.name)">
-                    <img :src="`/img/body_color/options/${item.name}.jpg`" /></li>
+                    <img :src="`/img/angle_1/body_color/options/${item.name}.jpg`" /></li>
             </ol>
             <p>{{colors.filter(item=>item.name == option.body_color)[0].text}}</p>
             <hr>

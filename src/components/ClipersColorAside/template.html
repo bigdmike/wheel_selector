@@ -5,7 +5,7 @@
             <ol class="color_list">
                 <li v-for="item in colors" :class="{active:option.clipers_color == item.name}"
                     @click="$emit('set-clipers-color',item.name)">
-                    <img :src="`/img/clipers/${item.name}.jpg`" /></li>
+                    <img :src="`/img/angle_1/clipers/${item.name}.jpg`" /></li>
             </ol>
             <p>{{colors.filter(item=>item.name == option.clipers_color)[0].text}}</p>
             <hr>

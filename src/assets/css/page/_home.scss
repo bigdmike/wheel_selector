@@ -16,16 +16,20 @@
         &.active {
             z-index: 5;
         }
+
+        @media(max-width:1000px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
     }
 
     .fade-enter-active {
         transition: opacity .5s;
     }
 
-    .fade-enter
-
-    /* .fade-leave-active below version 2.1.8 */
-        {
+    .fade-enter {
         opacity: 0;
     }
 

@@ -1,0 +1,17 @@
+<div id="CheckOutAside">
+    <div class="row">
+        <div class="img_box">
+            <img class="color_part" :src="`/img/angle_1/wheels/wheel_${option.wheel}/${option.clipers_color}.png`" />
+            <img class="color_part" :src="`/img/angle_1/body_color/${option.body_color}.png`" />
+            <img class="color_part" src="/img/angle_1/base.png" />
+            <img src="/img/angle_1/base.png" style="visibility: hidden;" />
+        </div>
+        <div class="main_container">
+            <h4>訂單內容</h4>
+            <hr>
+            <p>{{body_colors.filter(item=>item.name == option.body_color)[0].text}}車身烤漆</p>
+            <p>原廠{{cliper_colors.filter(item=>item.name == option.clipers_color)[0].text}}卡鉗</p>
+            <p>{{wheels.filter(item=>item.id == option.wheel)[0].text}}</p>
+        </div>
+    </div>
+</div>

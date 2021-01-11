@@ -13,6 +13,8 @@
     border-bottom: 1px solid #eee;
 
     .nav_header {
+        background-color: #fff;
+
         a {
             display: block;
             width: 120px;
@@ -25,16 +27,51 @@
     }
 
     .nav_body {
+        height: 100%;
+
         ol {
             display: flex;
             list-style: none;
             padding: 0;
             margin: 0;
+            height: 100%;
 
             li {
                 padding: 12px 20px;
+                height: 100%;
                 font-weight: normal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-bottom: 4px solid transparent;
+                cursor: pointer;
+
+                &.active {
+                    border-bottom: 4px solid red;
+                }
             }
+        }
+    }
+
+    @media(max-width:768px) {
+        flex-direction: column;
+
+        .nav_header {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 996;
+
+            a {
+                margin: 0 auto;
+            }
+        }
+
+        .nav_body {
+            display: none;
         }
     }
 }

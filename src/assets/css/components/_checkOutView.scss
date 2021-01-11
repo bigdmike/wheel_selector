@@ -1,0 +1,21 @@
+#CheckoutView {
+    width: calc(100% - 400px);
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all .3s;
+    background-color: #f6f6f6;
+
+    &.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    @media(max-width:1000px) {
+        width: 100%;
+        min-height: inherit;
+    }
+}
