@@ -1,0 +1,15 @@
+<div id="BodyColorAside">
+    <div class="row">
+        <div class="main_container">
+            <h4>選取車色</h4>
+            <ol class="color_list">
+                <li v-for="item in colors" :class="{active:option.body_color == item.name}"
+                    @click="$emit('set-body-color',item.name)">
+                    <img :src="`/img/body_color/options/${item.name}.jpg`" /></li>
+            </ol>
+            <p>{{colors.filter(item=>item.name == option.body_color)[0].text}}</p>
+            <hr>
+        </div>
+        <button class="next_btn" @click="$emit('set-step',2)">下一步</button>
+    </div>
+</div>

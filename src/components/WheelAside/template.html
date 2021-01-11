@@ -1,0 +1,16 @@
+<div id="BodyColorAside">
+    <div class="row">
+        <div class="main_container">
+            <h4>選取輪框</h4>
+            <ol class="wheel_list">
+                <li v-for="item in wheels" :class="{active:option.wheel == item.id}"
+                    @click="$emit('set-wheel',item.id)">
+                    <img :src="`/img/wheels/option/${item.id}.png`" /></li>
+            </ol>
+            <p>{{wheels.filter(item=>item.id == option.wheel)[0].text}}</p>
+            <hr>
+        </div>
+        <button class="prev_btn" @click="$emit('set-step',1)">上一步</button>
+        <button class="next_btn" @click="$emit('set-step',3)">下一步</button>
+    </div>
+</div>

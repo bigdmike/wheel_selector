@@ -1,0 +1,39 @@
+#BodyColorView {
+    width: calc(100% - 400px);
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+
+    .img_box {
+        width: 100%;
+        position: relative;
+
+        img {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: block;
+
+            &.color_part {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                &:nth-of-type(1) {
+                    z-index: 3;
+                }
+
+                &:nth-of-type(2) {
+                    z-index: 2;
+                }
+
+                &:nth-of-type(3) {
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}
