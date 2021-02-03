@@ -1,10 +1,11 @@
 <div id="CheckOutAside">
     <div class="row">
         <div class="img_box">
-            <img class="color_part" :src="`/img/angle_1/wheels/wheel_${option.wheel}/${option.clipers_color}.png`" />
-            <img class="color_part" :src="`/img/angle_1/body_color/${option.body_color}.png`" />
-            <img class="color_part" src="/img/angle_1/base.png" />
-            <img src="/img/angle_1/base.png" style="visibility: hidden;" />
+            <img class="color_part"
+                :src="`${$store.state.baseUrl}img/angle_1/wheels/wheel_${option.wheel}/${option.clipers_color}.png`" />
+            <img class="color_part" :src="`${$store.state.baseUrl}img/angle_1/body_color/${option.body_color}.png`" />
+            <img class="color_part" :src="`${$store.state.baseUrl}img/angle_1/base.png`" />
+            <img :src="`${$store.state.baseUrl}img/angle_1/base.png`" style="visibility: hidden;" />
         </div>
         <div class="main_container">
             <h4>訂單內容</h4>

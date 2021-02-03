@@ -42,12 +42,15 @@
     <transition name="fade">
       <div class="page" :class="{ active: step == 4 }">
         <transition name="fade-left">
-          <CheckoutView :class="{ active: step == 4 }" :option="option" />
+          <CheckoutView
+            :class="{ active: step == 4 }"
+            :option="option"
+            v-on:set-step="SetStep"
+          />
         </transition>
         <CheckoutAside
           :class="{ active: step == 4 }"
           v-on:set-clipers-color="SetCliper"
-          v-on:set-step="SetStep"
           :option="option"
         />
       </div>
@@ -99,6 +102,9 @@ export default {
     },
     SetStep(step) {
       this.$store.commit("SetStep", step)
+      if (step == 4) {
+        document.getElementById("CheckOutAside").scrollIntoView()
+      }
     }
   },
   computed: {

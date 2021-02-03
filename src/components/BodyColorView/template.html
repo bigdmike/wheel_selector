@@ -1,8 +1,10 @@
 <div id="BodyColorView">
     <div class="img_box">
-        <img class="color_part" :src="`/img/angle_1/wheels/wheel_${option.wheel}/${option.clipers_color}.png`" />
-        <img class="color_part" :src="`/img/angle_1/body_color/${option.body_color}.png`" />
-        <img class="color_part" src="/img/angle_1/base.png" />
-        <img src="/img/angle_1/base.png" style="visibility: hidden;" />
+        <img class="color_part"
+            :src="`${$store.state.baseUrl}img/angle_1/wheels/wheel_${option.wheel}/${option.clipers_color}.png`" />
+        <img class="color_part" :src="`${$store.state.baseUrl}img/angle_1/body_color/${option.body_color}.png`" />
+        <img class="color_part" :src="`${$store.state.baseUrl}img/angle_1/base.png`" />
+        <!-- <img class="color_part" :src="`${$store.state.baseUrl}img/new/${option.body_color}.jpg`" /> -->
+        <img :src="`${$store.state.baseUrl}img/angle_1/base.png`" style="visibility: hidden;" />
     </div>
 </div>

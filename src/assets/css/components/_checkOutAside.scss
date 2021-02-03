@@ -16,6 +16,7 @@
 
         img {
             width: 100%;
+            display: block;
 
             &.color_part {
                 position: absolute;
@@ -45,7 +46,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 70px 0px 0px;
+        padding: 0px 0px 0px;
     }
 
     @media(max-width:1000px) {
@@ -54,6 +55,22 @@
         height: auto;
         margin: 0 auto;
         border-left: none;
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            padding: 40px 0px;
+        }
+
+        .img_box {
+            margin-bottom: 0;
+        }
+    }
+
+    @media(max-width:768px) {
+        .row {
+            padding: 20px 0px;
+        }
     }
 }
 
@@ -69,7 +86,11 @@
         text-align: center;
         align-items: center;
         margin-bottom: 30px;
+        margin-bottom: 0;
+    }
 
+    @media(max-width:768px) {
+        display: none;
     }
 
     h4 {

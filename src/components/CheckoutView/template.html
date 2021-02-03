@@ -1,10 +1,47 @@
 <div id="CheckoutView">
-    <div class="header"></div>
-    <p>輸入帳戶詳細資料</p>
-    <div class="form">
-        <div class="form_group">
-            <label>名字</label>
-            <input type="text" name="name" />
+    <div class="header">
+        <a @click="$emit('set-step',3)"><span class="material-icons">
+                keyboard_arrow_left
+            </span>修改設計</a>
+    </div>
+    <div class="body">
+        <div class="main_container">
+            <h4>訂單內容</h4>
+            <p>{{body_colors.filter(item=>item.name == option.body_color)[0].text}}車身烤漆</p>
+            <p>原廠{{cliper_colors.filter(item=>item.name == option.clipers_color)[0].text}}卡鉗</p>
+            <p>{{wheels.filter(item=>item.id == option.wheel)[0].text}}</p>
+        </div>
+        <p>輸入帳戶詳細資料</p>
+        <div class="form">
+            <div class="form_group">
+                <label>名字</label>
+                <input v-model="form.name" type="text" name="name" />
+                <p class="error">{{getValidMsg("name", errors)}}</p>
+            </div>
+            <div class="form_group">
+                <label>聯絡電話</label>
+                <input v-model="form.phone" type="text" name="phone" />
+                <p class="error">{{getValidMsg("phone", errors)}}</p>
+            </div>
+            <div class="form_group">
+                <label>電子信箱</label>
+                <input v-model="form.email" type="text" name="email" />
+                <p class="error">{{getValidMsg("email", errors)}}</p>
+            </div>
+            <div class="form_group">
+                <label>通訊地址</label>
+                <input v-model="form.address" type="text" name="address" />
+                <p class="error">{{getValidMsg("address", errors)}}</p>
+            </div>
+            <div class="form_group">
+                <label>備註</label>
+                <textarea v-model="form.comment" name="comment"></textarea>
+            </div>
+            <div class="form_group">
+                <button @click="FormValid">送出訂單</button>
+            </div>
         </div>
     </div>
+
+    <hr>
 </div>
